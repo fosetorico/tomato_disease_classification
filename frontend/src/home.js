@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    maxWidth: 500,
+    maxWidth: 400,
   },
   gridContainer: {
     justifyContent: "center",
@@ -135,13 +135,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appbar: {
-    background: '#be6a77',
+    // background: '#FF6347',
+    background: '#FF2433',
     boxShadow: 'none',
-    color: 'white'
+    color: 'white',
   },
   loader: {
     color: '#be6a77 !important',
-  }
+  },
+
 }));
 export const ImageUpload = () => {
   const classes = useStyles();
@@ -207,12 +209,12 @@ export const ImageUpload = () => {
   if (data) {
     confidence = (parseFloat(data.confidence) * 100).toFixed(2);
   }
-  
+
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} noWrap style={{ fontSize: '24px' }}>
             <b>Tomato Plant Disease Detection App.</b>
           </Typography>
           <div className={classes.grow} />
@@ -242,7 +244,7 @@ export const ImageUpload = () => {
               {!image && <CardContent className={classes.content}>
                 <DropzoneArea
                   acceptedFiles={['image/*']}
-                  dropzoneText={"Drag and Drop or Upload an Image of your Tomato Plant Leaf for Processing..."}
+                  dropzoneText={<span style={{ fontWeight: 'bold' }}>Drag and Drop or Upload an Image of your Tomato Plant Leaf for Processing...</span>}
                   onChange={onSelectFile}
                 />
               </CardContent>}
@@ -251,8 +253,8 @@ export const ImageUpload = () => {
                   <Table className={classes.table} size="small" aria-label="simple table">
                     <TableHead className={classes.tableHead}>
                       <TableRow className={classes.tableRow}>
-                        <TableCell className={classes.tableCell1}>Label:</TableCell>
-                        <TableCell align="right" className={classes.tableCell1}>Confidence:</TableCell>
+                        <TableCell className={classes.tableCell1}><span style={{ fontWeight: 'bold' }}>Condition:</span></TableCell>
+                        <TableCell align="right" className={classes.tableCell1}><span style={{ fontWeight: 'bold' }}>Confidence:</span></TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody className={classes.tableBody}>
