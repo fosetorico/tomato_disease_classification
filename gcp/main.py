@@ -4,6 +4,7 @@ import tf_keras as keras
 from PIL import Image
 import numpy as np
 
+
 BUCKET_NAME = "fosetorico"
 CLASS_NAMES = ["Early Blight", "Late Blight", "Healthy"]
 
@@ -45,3 +46,4 @@ def predict(request):
     confidence = round(100 * (np.max(predictions[0])), 2)
 
     return {"class": predicted_class, "confidence": confidence}
+
