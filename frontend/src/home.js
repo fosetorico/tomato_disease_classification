@@ -160,7 +160,7 @@ export const ImageUpload = () => {
       formData.append("file", selectedFile);
       let res = await axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL,
+        url: `${process.env.REACT_APP_API_URL}/predict`,
         data: formData,
       });
       if (res.status === 200) {
@@ -288,3 +288,108 @@ export const ImageUpload = () => {
     </React.Fragment >
   );
 };
+
+
+// export const ImageUpload = () => {
+//   const classes = useStyles();
+//   const [images, setImages] = useState([]);
+//   const [results, setResults] = useState([]);
+//   const [isLoading, setIsLoading] = useState(false);
+
+//   const sendFiles = async () => {
+//     if (images.length > 0) {
+//       setIsLoading(true);
+//       const promises = images.map(async (file) => {
+//         let formData = new FormData();
+//         formData.append("file", file);
+//         try {
+//           const response = await axios.post(`${process.env.REACT_APP_API_URL}/predict`, formData);
+//           return response.data;
+//         } catch (error) {
+//           console.error("Error processing file:", error);
+//           return null;
+//         }
+//       });
+
+//       try {
+//         const responses = await Promise.all(promises);
+//         setResults(responses.filter(Boolean)); // Filter out null responses
+//       } catch (error) {
+//         console.error("Error processing files:", error);
+//       }
+
+//       setIsLoading(false);
+//     }
+//   };
+
+//   const clearData = () => {
+//     setImages([]);
+//     setResults([]);
+//   };
+
+//   const onSelectFiles = (files) => {
+//     setImages(files);
+//     setResults([]); // Clear previous results when new files are selected
+//   };
+
+//   return (
+//     <React.Fragment>
+//       <AppBar position="static" className={classes.appbar}>
+//         <Toolbar>
+//           <Typography className={classes.title} noWrap style={{ fontSize: '24px' }}>
+//             <b>Tomato Plant Disease Detection App.</b>
+//           </Typography>
+//           <div className={classes.grow} />
+//           <Avatar src={cblogo}></Avatar>
+//         </Toolbar>
+//       </AppBar>
+//       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
+//         <Grid
+//           className={classes.gridContainer}
+//           container
+//           direction="row"
+//           justifyContent="center"
+//           alignItems="center"
+//           spacing={2}
+//         >
+//           <Grid item xs={12}>
+//             <DropzoneArea
+//               acceptedFiles={['image/*']}
+//               dropzoneText={<span style={{ fontWeight: 'bold' }}>Drag and Drop or Upload Images of Tomato Plant Leaves for Processing...</span>}
+//               onChange={onSelectFiles}
+//               filesLimit={10} // Set the maximum number of files allowed to be uploaded
+//               showPreviewsInDropzone={true} // Show previews of uploaded images in the dropzone
+//             />
+//           </Grid>
+//         </Grid>
+
+//         {results.length > 0 && (
+//           <Grid container spacing={2}>
+//             {results.map((result, index) => (
+//               <Grid item key={index}>
+//                 <Card>
+//                   <CardMedia image={URL.createObjectURL(images[index])} component="img" />
+//                   <CardContent>
+//                     <Typography variant="h6">Condition: {result.class}</Typography>
+//                     <Typography variant="body1">Confidence: {(parseFloat(result.confidence) * 100).toFixed(2)}%</Typography>
+//                   </CardContent>
+//                 </Card>
+//               </Grid>
+//             ))}
+//           </Grid>
+//         )}
+
+//         {isLoading && (
+//           <div>
+//             <CircularProgress />
+//             <Typography variant="body1">Processing...</Typography>
+//           </div>
+//         )}
+
+//         {images.length > 0 && (
+//           <Button variant="contained" color="primary" onClick={clearData}>Clear</Button>
+//         )}
+//       </Container>
+//     </React.Fragment>
+//   );
+// };
