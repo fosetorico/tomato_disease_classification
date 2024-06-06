@@ -14,3 +14,7 @@ For the perpose of testing, a user interface using the React library with an API
 Below shows some result from the forntend/backend interaction
 ![frontend](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/5e2dec56-d869-4c5c-af82-03cab8317528)
 ![frontend_2](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/4cf199fc-436b-4fed-b98b-1eeacc69f1ee)
+
+### Deployment
+Finally, the API was deployed on the Google Cloud Platform, for access, the logs of various interactions is shown below
+![gcp](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/6dc2d6bf-e033-4409-8eb0-139b507a199f)
