@@ -10,3 +10,7 @@ With 20 epochs, the output is analysed below
 ![train_vs_val](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/6c6ffd45-2303-488c-80f2-8699c3529087)
 
 ### Testing
+For the perpose of testing, a user interface using the React library with an API created using FastAPI was created, the saved was recruited in the API to foster an interaction with react frontend.
+Below shows some result from the forntend/backend interaction
+![frontend](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/5e2dec56-d869-4c5c-af82-03cab8317528)
+![frontend_2](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/4cf199fc-436b-4fed-b98b-1eeacc69f1ee)
