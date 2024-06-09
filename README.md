@@ -16,5 +16,5 @@ Below shows some result from the forntend/backend interaction
 ![frontend_2](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/4cf199fc-436b-4fed-b98b-1eeacc69f1ee)
 
 ### Deployment
-Finally, the API was deployed on the Google Cloud Platform, for access, the logs of various interactions is shown below
+The API was deployed on the Google Cloud Platform, for access, the logs of various interactions is shown below
 ![gcp](https://github.com/fosetorico/tomato_disease_detection/assets/14139087/6dc2d6bf-e033-4409-8eb0-139b507a199f)
