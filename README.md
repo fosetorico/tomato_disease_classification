@@ -1,4 +1,4 @@
-# Tomato Disease Detection System for Nigerian Farmers
+# Detection and Classification of Tomato Diseases for Farmers in Nigeria.
 
 ## Overview
 An AI-powered system that uses computer vision to detect and classify tomato plant diseases, specifically designed to address agricultural challenges in Nigeria. This project aims to provide early disease detection capabilities to help prevent crop losses and improve food security.
@@ -83,7 +83,7 @@ The system is deployed on Google Cloud Platform for scalability and accessibilit
 ### Local Development Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/tomato_disease_detection.git
+git clone https://github.com/fosetorico/tomato_disease_detection.git
 cd tomato_disease_detection
 ```
 
@@ -123,14 +123,3 @@ The API provides the following endpoints:
 
 ## Contributing
 We welcome contributions! Please see our contributing guidelines for more details.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-- Nigerian Agricultural Research Institute for dataset collaboration
-- Local farming communities for testing and feedback
-- Open source community for various tools and libraries used
-
-## Contact
-For support or queries, please contact [Your Contact Information]
