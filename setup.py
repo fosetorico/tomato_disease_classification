@@ -9,7 +9,7 @@ __version__ = "0.0.0"
 REPO_NAME = "tomato_disease_detection"
 AUTHOR_USER_NAME = "fosetorico"
 SRC_REPO = "tomato_disease_classification"
-AUTHOR_EMAIL = "vallee_neutral@gmail.com"
+AUTHOR_EMAIL = "vallee.neutral@gmail.com"
 
 
 setuptools.setup(

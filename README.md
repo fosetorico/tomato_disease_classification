@@ -1,10 +1,16 @@
-# Detection and Classification of Tomato Diseases for Farmers in Nigeria.
+# End-to-End Project for Detection and Classification of Tomato Diseases.
+An AI-powered system that uses computer vision to detect and classify tomato plant diseases, specifically designed to address agricultural challenges. This project aims to provide early disease detection capabilities to help prevent crop losses and improve food security.
 
-## Overview
-An AI-powered system that uses computer vision to detect and classify tomato plant diseases, specifically designed to address agricultural challenges in Nigeria. This project aims to provide early disease detection capabilities to help prevent crop losses and improve food security.
-
-## Background
-Following the devastating 2015 Nigerian tomato crisis caused by Tuta absoluta (tomato leaf miner) infestation, which resulted in massive crop losses and economic impact, there has been an urgent need for better disease detection and management systems. This project leverages modern technology to address these ongoing agricultural challenges.
+## Workflow
+1. Update config.yaml
+2. Update secrets.yaml [Optional]
+3. Update params.yaml
+4. Update the entity
+5. Update the configuration manager in src config
+6. Update the components
+7. Update the pipeline 
+8. Update the main.py
+9. Update the dvc.yaml
 
 ## Features
 - Real-time disease detection and classification
