@@ -1,0 +1,117 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/tomato_disease_classification/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: f594fdd0563f9a0cec8c9b9bec724c39
+      size: 807
+    - path: src/tomato_disease_classification/pipeline/stage_01_data_ingestion.py
+      hash: md5
+      md5: 29917955fc0ac55b062e814ac3585f07
+      size: 977
+    outs:
+    - path: artifacts/data_ingestion/colour
+      hash: md5
+      md5: c2ee757f301d572f921611fe62afa6b3.dir
+      size: 24064898
+      nfiles: 1416
+  prepare_base_model:
+    cmd: python src/tomato_disease_classification/pipeline/stage_02_prepare_base_model.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: f594fdd0563f9a0cec8c9b9bec724c39
+      size: 807
+    - path: src/tomato_disease_classification/pipeline/stage_02_prepare_base_model.py
+      hash: md5
+      md5: 9170c694758b8933882a75ab5ebe9b8c
+      size: 1043
+    params:
+      params.yaml:
+        CLASSES: 3
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+        INCLUDE_TOP: false
+        LEARNING_RATE: 0.01
+        WEIGHTS: imagenet
+    outs:
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 0ace2ebe0db1fd13ff6a0f2cab5300c9.dir
+      size: 160659408
+      nfiles: 2
+  training:
+    cmd: python src/tomato_disease_classification/pipeline/stage_03_training.py
+    deps:
+    - path: artifacts/data_ingestion/colour
+      hash: md5
+      md5: c2ee757f301d572f921611fe62afa6b3.dir
+      size: 24064898
+      nfiles: 1416
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 0ace2ebe0db1fd13ff6a0f2cab5300c9.dir
+      size: 160659408
+      nfiles: 2
+    - path: config/config.yaml
+      hash: md5
+      md5: f594fdd0563f9a0cec8c9b9bec724c39
+      size: 807
+    - path: src/tomato_disease_classification/components/prepare_callbacks.py
+      hash: md5
+      md5: 7f383f0b21673083dcca9620001f6dea
+      size: 1041
+    - path: src/tomato_disease_classification/pipeline/stage_03_training.py
+      hash: md5
+      md5: c1ea6eda3cf2a73a82853cb73cba6339
+      size: 1322
+    params:
+      params.yaml:
+        AUGMENTATION: true
+        BATCH_SIZE: 16
+        EPOCHS: 1
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: f1af260e5cee12917bb857c85bcb7290
+      size: 80792296
+  evaluation:
+    cmd: python src/tomato_disease_classification/pipeline/stage_04_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/colour
+      hash: md5
+      md5: c2ee757f301d572f921611fe62afa6b3.dir
+      size: 24064898
+      nfiles: 1416
+    - path: artifacts/training/model.h5
+      hash: md5
+      md5: f1af260e5cee12917bb857c85bcb7290
+      size: 80792296
+    - path: config/config.yaml
+      hash: md5
+      md5: f594fdd0563f9a0cec8c9b9bec724c39
+      size: 807
+    - path: src/tomato_disease_classification/pipeline/stage_04_evaluation.py
+      hash: md5
+      md5: 145975238f056b3f095d5078749f8592
+      size: 924
+    params:
+      params.yaml:
+        BATCH_SIZE: 16
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: scores.json
+      hash: md5
+      md5: a3e16863beecbea69cf7167e446e3cf1
+      size: 73
