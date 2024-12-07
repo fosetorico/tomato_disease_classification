@@ -32,5 +32,9 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/tomatodisease-app:latest
 
+    - name: Debug tags
+      run: echo ${{ secrets.DOCKER_USERNAME }}/tomatodisease-app:latest
+      
+
     - name: Image digest
       run: echo ${{ steps.build-and-publish.outputs.digest }}
