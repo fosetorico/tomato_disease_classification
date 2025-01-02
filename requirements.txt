@@ -1,5 +1,6 @@
 tensorflow
 pandas 
+mlflow==2.2.2
 dvc
 notebook
 numpy
@@ -15,4 +16,5 @@ scipy
 Flask
 Flask-Cors
 tf_keras
+
 -e .
